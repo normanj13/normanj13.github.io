@@ -12,16 +12,14 @@
 <img src="https://m.media-amazon.com/images/I/71mJCkXKOaL._AC_UF1000,1000_QL80_.jpg">
 <p>A picture of me from last year.</p>
 <img src="GradPic.JPG">
-</div>
-<!-- JavaScript to fetch and display APOD -->
 <script>
     // Fetch data from NASA APOD API
-    fetch('https://api.nasa.gov/planetary/h4y4tZgVYbMGY5kzjK2r6AVaYDjanCc0JMS2HuwJ')
+    fetch('https://api.nasa.gov/planetary/apod?api_key=h4y4tZgVYbMGY5kzjK2r6AVaYDjanCc0JMS2HuwJ)
         .then(response => response.json())
         .then(data => {
             // Update HTML content with APOD data
             const apodContainer = document.getElementById('apod-container');
-            const title = document.createElement('h3');
+            const title = document.createElement('h2');
             title.textContent = data.title;
             const date = document.createElement('p');
             date.textContent = data.date;
