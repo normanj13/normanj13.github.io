@@ -12,6 +12,34 @@
 <img src="https://m.media-amazon.com/images/I/71mJCkXKOaL._AC_UF1000,1000_QL80_.jpg">
 <p>A picture of me from last year.</p>
 <img src="GradPic.JPG">
+</div>
+
+<!-- JavaScript to fetch and display APOD -->
+<script>
+    // Fetch data from NASA APOD API
+    fetch('https://api.nasa.gov/planetary/h4y4tZgVYbMGY5kzjK2r6AVaYDjanCc0JMS2HuwJ')
+        .then(response => response.json())
+        .then(data => {
+            // Update HTML content with APOD data
+            const apodContainer = document.getElementById('apod-container');
+            const title = document.createElement('h3');
+            title.textContent = data.title;
+            const date = document.createElement('p');
+            date.textContent = data.date;
+            const explanation = document.createElement('p');
+            explanation.textContent = data.explanation;
+            const image = document.createElement('img');
+            image.src = data.hdurl; // Using HD image URL for better quality
+            image.alt = data.title;
+
+            // Append elements to container
+            apodContainer.appendChild(title);
+            apodContainer.appendChild(date);
+            apodContainer.appendChild(explanation);
+            apodContainer.appendChild(image);
+        })
+        .catch(error => console.error('Error fetching APOD data:', error));
+</script>
 <h5>Elements added:</h5>
 <p>I changed the backgound color for the website. I also changed the font for the title and the color of the box. I added two pictures and borders for each one. In addition, I added a link to my Linkedin profile.</p>
 <h5>Tags added:</h5>
